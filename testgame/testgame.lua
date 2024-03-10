@@ -86,7 +86,7 @@ local function startup()
     local p = Player:new({})
     local stage = Stage:new({})
     stage.initializeStage(stage, 6, 2)
-    p.initializePlayer(p, 2)
+    p.initializePlayer(p, 6, 2)
     local frame = 0
 
     while (true) do
