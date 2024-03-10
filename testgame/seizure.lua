@@ -21,8 +21,9 @@ local colors = {
 }
 
 while true do
+    sleep(0.05)
     for y=1, 24, 1 do
-        for x = 1, 32, 1 do
+        for x = 1, 36, 1 do
             monitor.setCursorPos(x,y)
             monitor.setBackgroundColor(colors[math.random(16)])
             monitor.write(" ")
