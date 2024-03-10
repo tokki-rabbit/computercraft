@@ -64,8 +64,8 @@ end
 
 local function draw(stage, player)
     monitor.setBackgroundColor(colors.white)
-    for i=1, player.height+1, 1 do
-        monitor.setCursorPos(player.x, player.y+i)
+    for i=0, player.height-1, 1 do
+        monitor.setCursorPos(player.x, player.y-i)
         monitor.write(" ")
     end
     for i=2, #stage.ground, 1 do
@@ -97,7 +97,7 @@ local function startup()
         end
         draw(stage, p)
         monitor.setBackgroundColor(colors.black)
-        if (x ~= nil) then
+        if (x ~= nil and not (x ~= true or x ~= false)) then
             monitor.setCursorPos(x, y)
             monitor.write("X")
         end
