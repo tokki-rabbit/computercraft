@@ -8,7 +8,7 @@ local Player = {
     x,
     y,
     vy,
-    height = 2/monitor.getTextScale(),
+    height,
     isAlive
 }
 function Player:new(o)
@@ -57,8 +57,9 @@ end
 
 function Player:initializePlayer(resW, resH)
     self.x = resW + resW/2
-    self.y = h-resH*3
+    self.y = h-resH*3+1
     self.vy = 0
+    self.height = resH
     self.isAlive = true
 end
 
