@@ -51,7 +51,7 @@ function Stage:initializeStage(resW, resH)
         self.ground[i+1] = Box:new({x = i*resW-resW+1, y = h-resH, width = resW, height = resH, isOn = true})
     end
     for i=1, w / resW + 1, 1 do
-        self.obstacles[i+1] = Box:new({x = i*resW-resW+1, y = h-resH, width = resW, height = resH, isOn = true})
+        self.obstacles[i+1] = Box:new({x = i*resW-resW+1, y = h-resH*2, width = resW, height = resH, isOn = true})
     end
 end
 
@@ -94,12 +94,13 @@ local function startup()
         local event, side, x, y = os.pullEvent()
         if (event == "monitor_touch") then
             os.cancelTimer(timer)
-            monitor.setBackgroundColor(colors.black)
-            monitor.setCursorPos(x, y)
-            monitor.write("x")
         end
         draw(stage, p)
         monitor.setBackgroundColor(colors.black)
+        if (x ~= nil) then
+            monitor.setCursorPos(x, y)
+            monitor.write("X")
+        end
         monitor.setCursorPos(1,1)
         frame = frame + 1
         monitor.write(frame)
